@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Old School Roleplay</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<audio id="clickSound" preload="auto">
+<source src="assets/MA_SoundCreator_Pen_Clicks_1.wav" type="audio/wav">
+</audio>
+
+<nav class="navbar">
+
+<a href="index.html">الرئيسية</a>
+
+<a href="staff.html">طاقم الإدارة</a>
+
+<a href="creators.html">صناع المحتوى</a>
+
+<a href="moderation.html">طاقم الرقابة</a>
+
+<a href="discord.html">الدسكورد</a>
+
+<a href="https://scc.rmz.gg/" target="_blank">
+المتجر
+</a>
+
+</nav>
+
+<section class="hero">
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<h1>OLD SCHOOL ROLEPLAY</h1>
+
+<p class="subtitle">
+القوانين الرسمية للمدينة
+</p>
+
+<div class="search-box">
+
+<input
+type="text"
+placeholder="ابحث في القوانين..."
+id="searchInput">
+
+<button id="searchBtn">
+بحث
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="laws-section" id="laws">
+
+<h2>
+القوانين
+</h2>
+
+<div class="accordion">
+
+<button class="accordion-btn">
+القوانين العامة
+</button>
+
+<div class="accordion-content">
+قيد التطوير
+</div>
+
+</div>
+
+<div class="accordion">
+
+<button class="accordion-btn">
+قيد التطوير
+</button>
+
+<div class="accordion-content">
+قيد التطوير
+</div>
+
+</div>
+
+<div class="accordion">
+
+<button class="accordion-btn">
+قوانين الإجرام
+</button>
+
+<div class="accordion-content">
+قيد التطوير
+</div>
+
+</div>
+
+<div class="accordion">
+
+<button class="accordion-btn">
+قوانين المناطق الآمنة
+</button>
+
+<div class="accordion-content">
+قيد التطوير
+</div>
+
+</div>
+
+<div class="accordion">
+
+<button class="accordion-btn">
+قوانين العصابات
+</button>
+
+<div class="accordion-content">
+قيد التطوير
+</div>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+© 2026 OLD SCHOOL ROLEPLAY
+
+</footer>
+
+<script>
+
+const audio = document.getElementById("clickSound");
+
+/* تشغيل الصوت */
+
+document.querySelectorAll("button,a").forEach(item => {
+
+item.addEventListener("click", () => {
+
+audio.currentTime = 0;
+
+audio.play().catch(() => {});
+
+});
+
+});
+
+/* القوانين */
+
+const buttons = document.querySelectorAll(".accordion-btn");
+
+buttons.forEach(button => {
+
+button.addEventListener("click", function(){
+
+buttons.forEach(btn => {
+
+if(btn !== this){
+
+btn.nextElementSibling.style.maxHeight = null;
+btn.nextElementSibling.classList.remove("open");
+
+}
+
+});
+
+const content = this.nextElementSibling;
+
+if(content.classList.contains("open")){
+
+content.style.maxHeight = null;
+content.classList.remove("open");
+
+}else{
+
+content.style.maxHeight =
+content.scrollHeight + 50 + "px";
+
+content.classList.add("open");
+
+}
+
+});
+
+});
+
+</script>
+
+</body>
+
+</html>
